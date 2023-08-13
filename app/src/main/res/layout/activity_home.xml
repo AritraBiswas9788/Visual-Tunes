@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout
+    android:id="@+id/drawer"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".HomeActivity">
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/NavMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|bottom"
+        android:layout_marginTop="70dp"
+        app:headerLayout="@layout/menuheader"
+        app:menu="@menu/nav_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:background="@color/blue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.airbnb.lottie.LottieAnimationView
+            android:id="@+id/menuIcon"
+            android:layout_width="65dp"
+            android:layout_height="55dp"
+            android:layout_margin="15dp"
+            app:lottie_rawRes="@raw/menuicon"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+            <TextView
+                android:id="@+id/SongTitle"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="15dp"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/amatica_sc_bold"
+                android:foregroundGravity="center"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:paddingStart="20dp"
+                android:singleLine="true"
+                android:text="Don't let Me Down "
+                android:textColor="@color/white"
+                android:textSize="35sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/menuIcon"
+                app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/lottieAnimationView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:scaleType="fitXY"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/wave"
+        app:lottie_speed="1.5" />
+
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/FragmentPager"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="-5dp"
+            app:layout_constraintBottom_toTopOf="@+id/constraintLayout2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/lottieAnimationView"
+            app:layout_constraintVertical_bias="1.0" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="65dp"
+            android:background="@drawable/playerframe"
+            app:layout_constraintBottom_toTopOf="@+id/LottieNavBar"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/PlayButton"
+                android:layout_width="86dp"
+                android:layout_height="86dp"
+                android:scaleType="centerCrop"
+                app:lottie_speed="7"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.483"
+                app:lottie_rawRes="@raw/playbutton" />
+
+            <TextView
+                android:id="@+id/SongName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-9dp"
+                android:layout_marginTop="9dp"
+                android:ellipsize="marquee"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/fauna_one"
+                android:foregroundGravity="center"
+                android:gravity="center_vertical"
+                android:lines="1"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:text="Don't let Me Down"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/listenModeButton"
+                app:layout_constraintStart_toEndOf="@+id/PlayButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/SongInfo"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="-9dp"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:fontFamily="@font/happy_monkey"
+                android:foregroundGravity="center"
+                android:gravity="center_vertical"
+                android:marqueeRepeatLimit="marquee_forever"
+                android:singleLine="true"
+                android:text="COLDPLAY"
+                android:textColor="#BFFFFFFF"
+                app:layout_constraintEnd_toStartOf="@+id/listenModeButton"
+                app:layout_constraintStart_toEndOf="@+id/PlayButton"
+                app:layout_constraintTop_toBottomOf="@+id/SongName" />
+
+            <ImageView
+                android:id="@+id/listenModeButton"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_marginEnd="-10dp"
+                android:src="@drawable/headseticon"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/likeButton"
+                app:layout_constraintTop_toTopOf="parent" />
+
+
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/likeButton"
+                android:layout_width="70dp"
+                android:layout_height="90dp"
+                android:scaleType="centerCrop"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:lottie_rawRes="@raw/likebutton" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dark_grey"
+                app:layout_constraintBottom_toTopOf="@+id/middle" />
+
+            <View
+                android:id="@+id/middle"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="#A3A3A3"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/dark_grey"
+                app:layout_constraintTop_toBottomOf="@+id/middle" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <com.wwdablu.soumya.lottiebottomnav.LottieBottomNav
+                android:id="@+id/LottieNavBar"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                android:background="@color/dark_blue"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:menu_selected_height="60dp"
+                app:menu_selected_width="60dp"
+                app:menu_text_show_on_unselected="true"
+                app:menu_unselected_height="40dp"
+                app:menu_unselected_width="40dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <!--<me.ertugrul.lib.SuperBottomBar
+            android:id="@+id/superBottomBar"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            app:sbb_backgroundColor="@color/dark_blue"
+            app:sbb_passiveColor="#707070"
+            app:sbb_pressedColor="@color/white"
+            app:sbb_iconSize="35dp"
+            app:sbb_textSize="10dp"
+            app:sbb_menu="@menu/bottom_menu"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />-->
+
+</androidx.drawerlayout.widget.DrawerLayout>
